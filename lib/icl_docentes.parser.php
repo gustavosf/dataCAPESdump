@@ -4,7 +4,7 @@
  * Classe para parse do arquivo de docentes do DataCAPES
  *
  * Uso:
- * 1 $docentes = new ICL_Docentes("arquivo.docentes.txt", "docentes");
+ * 1 $docentes = new ICL_Docentes("arquivo.docentes.txt");
  * 2 $retorno = $docentes->parse();
  */
 class ICL_Docentes {
@@ -19,15 +19,35 @@ class ICL_Docentes {
 	private $fields = array(
 		0  => 'ano',
 		1  => 'programa',           // código do programa
+		/*
+		2  => 'someid',
+		3  => 'someflag',
+		4  => 'someflag',
+		5  => 'someflag',
+		6  => 'someflag',
+		7  => 'someflag',
+		8  => 'someflag',
+		9  => 'someflag',
+		10 => 'someflag',
+		*/
 		11 => 'nivel',              // nível de instrução do docente (M ou D)
+		/*
 		12 => 'somefield',
-		13 => 'someflag',
+		13 => 'somefield',
+		*/
 		14 => 'anoformacao',        // ano da formação mais recente do docente
 		15 => 'ies_formacao_cod',   // código da IES da formação
 		16 => 'ies_formacao_sigla',
 		17 => 'ies_formacao_nome',
 		18 => 'ies_formacao_pais',  // formato XX (sigla do país)
-		24 => 'lattes',             // código látes (16 digitos)
+		/*
+		19 => 'somefield',
+		20 => 'somefield',
+		21 => 'somefield',
+		22 => 'somefield',
+		23 => 'somefield',
+		*/
+		24 => 'lattes',
 	);
 	
 	private $file;
@@ -39,7 +59,7 @@ class ICL_Docentes {
 	}
 	
 	public function parse() {
-		$content = file_get_contents(DUMP_PATH . $this->file);
+		$content = file_get_contents(DUMP_PATH . DS . $this->file);
 		$content = explode("\n", $content);
 
 		// itera sobre a lista de docentes, pegando apenas os campos setados em $fields

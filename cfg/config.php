@@ -4,7 +4,7 @@ define('ROOT', dirname(dirname(__FILE__)));
 define('DS', DIRECTORY_SEPARATOR);
 
 define('DUMP_PATH', ROOT . DS . 'dump');
-define('LIB_PATH', ROOT . DS . 'dump');
+define('LIB_PATH', ROOT . DS . 'lib');
 
 /* função mágica usada para carregamento automático dos parsers */
 function __autoload($className) {
